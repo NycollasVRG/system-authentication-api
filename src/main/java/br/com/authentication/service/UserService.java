@@ -22,19 +22,15 @@ public class UserService {
 
     @Transactional
     public UserResponse registerUser(UserRequest request) {
-        // 1. Valida
+
         userValidator.validateNewUser(request);
 
-        // 2. Regra de negócio (Hash da senha)
         String hash = passwordEncoder.encode(request.password());
 
-        // 3. Mapeia para Entidade
         Users userToSave = UserMapper.toEntity(request, hash);
 
-        // 4. Salva no Banco (Repository)
         Users savedUser = userRepository.save(userToSave);
 
-        // 5. Mapeia para Response e retorna
         return userMapper.toResponse(savedUser);
     }
 }

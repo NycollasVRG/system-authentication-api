@@ -22,3 +22,4 @@ jwt:
     key: classpath:authz.pub
   private:
     key: classpath:authz.pem
+  expiration: 3600
