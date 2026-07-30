@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: authentication-api
+
+  datasource:
+      url: jdbc:postgresql://localhost:5432/authentication
+      driver-class-name: org.postgresql.Driver
+      username: ${GROUP_DB_USER:postgres}
+      password: ${GROUP_DB_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  output:
+    ansi:
+      enabled: NEVER
+
+
+jwt:
+  public:
+    key: classpath:authz.pub
+  private:
+    key: classpath:authz.pem
