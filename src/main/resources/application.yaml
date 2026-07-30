@@ -3,7 +3,7 @@ spring:
     name: authentication-api
 
   datasource:
-      url: jdbc:postgresql://localhost:5432/authentication
+      url: jdbc:postgresql://localhost:5432/authenticaton
       driver-class-name: org.postgresql.Driver
       username: ${GROUP_DB_USER:postgres}
       password: ${GROUP_DB_PASSWORD:postgres}
