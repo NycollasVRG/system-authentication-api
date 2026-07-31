@@ -44,7 +44,12 @@ API de autenticacao com JWT, cadastro de usuarios e recuperacao de senha.
 ```
 GROUP_DB_USER
 GROUP_DB_PASSWORD
+MAIL_USERNAME
+MAIL_PASSWORD
 ```
+
+Veja `docs/variaveis-de-ambiente.md` para o passo a passo de
+configuracao no IntelliJ e no PowerShell.
 
 ### Chaves RSA
 
@@ -76,3 +81,9 @@ http://localhost:8080/swagger-ui/index.html
 ```
 http://localhost:8080/v3/api-docs
 ```
+
+## Documentacao
+
+- `docs/variaveis-de-ambiente.md` — como configurar as variaveis de ambiente
+- `docs/smtp.md` — como funciona a conexao SMTP para envio de e-mails
+- `collection/collection.json` — collection da API (importavel em Postman, Bruno, Insomnia, etc.)
