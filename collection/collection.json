@@ -1,0 +1,139 @@
+{
+  "info": {
+    "_postman_id": "3a9f1c2e-7b4d-4e8f-9a2c-5d6b7c8d9e0f",
+    "name": "Authentication API",
+    "description": "API de autenticacao com JWT, cadastro de usuarios e recuperacao de senha.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Cadastrar usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Joao da Silva\",\n  \"email\": \"joao@email.com\",\n  \"password\": \"senha12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/cadastro",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "cadastro"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Autenticacao",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"joao@email.com\",\n  \"password\": \"senha12345\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Solicitar recuperacao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"joao@email.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/recuperar-senha",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "recuperar-senha"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resetar senha",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"00000000-0000-0000-0000-000000000000\",\n  \"newPassword\": \"novaSenha123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/resetar-senha",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "resetar-senha"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
