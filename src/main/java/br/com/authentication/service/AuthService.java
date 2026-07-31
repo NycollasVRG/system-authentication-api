@@ -5,7 +5,6 @@ import br.com.authentication.controller.response.AuthResponse;
 import br.com.authentication.domain.Users;
 import br.com.authentication.repository.UserRepository;
 import br.com.authentication.service.exception.InvalidCredentialsException;
-import br.com.authentication.service.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,7 +30,7 @@ public class AuthService {
     public AuthResponse authenticate(AuthRequest request) {
 
         Users user = userRepository.findByEmail(request.email())
-                .orElseThrow(UserNotFoundException::new);
+                .orElseThrow(InvalidCredentialsException::new);
 
         if (!passwordEncoder.matches(request.password(), user.getPasswordHash())) {
             throw new InvalidCredentialsException();
