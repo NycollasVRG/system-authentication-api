@@ -6,7 +6,7 @@ API de autenticacao com JWT, cadastro de usuarios e recuperacao de senha.
 
 - Autenticacao com JWT (login)
 - Cadastro de usuarios
-- Recuperacao de senha via token
+- Recuperacao de senha via token (é enviada pelo terminal da aplicação)
 
 ## Arquitetura em camadas
 
