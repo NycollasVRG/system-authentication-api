@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.boot.mail.autoconfigure.MailProperties;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Slf4j
 @Service
@@ -13,12 +15,13 @@ import org.springframework.stereotype.Service;
 public class MailService {
 
     private final ObjectProvider<JavaMailSender> mailSenderProvider;
+    private final MailProperties mailProperties;
 
     public void sendRecoveryEmail(String to, String token) {
         log.info("Token de recuperação para {}: {}", to, token);
 
         JavaMailSender mailSender = mailSenderProvider.getIfAvailable();
-        if (mailSender == null) {
+        if (mailSender == null || !StringUtils.hasText(mailProperties.getUsername())) {
             return;
         }
 
