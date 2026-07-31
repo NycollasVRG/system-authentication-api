@@ -76,3 +76,20 @@ http://localhost:8080/swagger-ui/index.html
 ```
 http://localhost:8080/v3/api-docs
 ```
+
+## API Collection
+
+Além da documentação disponível no Swagger, o projeto também disponibiliza uma coleção de requisições para facilitar os testes da API.
+
+A coleção está localizada na pasta **`collection/`** do projeto e pode ser importada em clientes de API como:
+
+* Postman
+* Insomnia
+* Bruno
+
+O arquivo JSON já contém os principais endpoints configurados, incluindo:
+
+* Cadastro de usuários
+* Login (JWT)
+* Recuperação de senha
+* Reset de senha
